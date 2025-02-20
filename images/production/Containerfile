@@ -101,8 +101,8 @@ USER frappe
 FROM build AS builder
 
 ARG FRAPPE_BRANCH=version-15
-ARG FRAPPE_PATH=https://github.com/frappe/frappe
-ARG ERPNEXT_REPO=https://github.com/frappe/erpnext
+ARG FRAPPE_PATH=https://github.com/frappecom/frappe
+ARG ERPNEXT_REPO=https://github.com/frappecom/erpnext
 ARG ERPNEXT_BRANCH=version-15
 RUN bench init \
   --frappe-branch=${FRAPPE_BRANCH} \

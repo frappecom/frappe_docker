@@ -54,7 +54,7 @@ RUN apt-get update \
     # VSCode container requirements
     net-tools \
     # For pyenv build dependencies
-    # https://github.com/frappe/frappe_docker/issues/840#issuecomment-1185206895
+    # https://github.com/frappecom/frappe_docker/issues/840#issuecomment-1185206895
     make \
     # For pandas
     libbz2-dev \

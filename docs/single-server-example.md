@@ -44,7 +44,7 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 Clone `frappe_docker` repo for the needed YAMLs and change the current working directory of your shell to the cloned repo.
 
 ```shell
-git clone https://github.com/frappe/frappe_docker
+git clone https://github.com/frappecom/frappe_docker
 cd frappe_docker
 ```
 
@@ -197,7 +197,7 @@ Create second bench called `erpnext-two` with `three.example.com` and `four.exam
 Create a file called `erpnext-two.env` in `~/gitops`
 
 ```shell
-curl -sL https://raw.githubusercontent.com/frappe/frappe_docker/main/example.env -o ~/gitops/erpnext-two.env
+curl -sL https://raw.githubusercontent.com/frappecom/frappe_docker/main/example.env -o ~/gitops/erpnext-two.env
 sed -i 's/DB_PASSWORD=123/DB_PASSWORD=changeit/g' ~/gitops/erpnext-two.env
 sed -i 's/DB_HOST=/DB_HOST=mariadb-database/g' ~/gitops/erpnext-two.env
 sed -i 's/DB_PORT=/DB_PORT=3306/g' ~/gitops/erpnext-two.env

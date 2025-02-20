@@ -10,7 +10,7 @@ Podman (the POD MANager) is a tool for managing containers and images, volumes m
 
 - Clone this repository and change the current directory to the downloaded folder
   ```cmd
-    git clone https://github.com/frappe/frappe_docker
+    git clone https://github.com/frappecom/frappe_docker
     cd frappe_docker
   ```
 
@@ -20,7 +20,7 @@ Podman (the POD MANager) is a tool for managing containers and images, volumes m
   ```json
   [
     {
-      "url": "https://github.com/frappe/erpnext",
+      "url": "https://github.com/frappecom/erpnext",
       "branch": "version-15"
     },
     {
@@ -43,7 +43,7 @@ Podman (the POD MANager) is a tool for managing containers and images, volumes m
 
 ```ruby
   podman build \
-   --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe \
+   --build-arg=FRAPPE_PATH=https://github.com/frappecom/frappe \
    --build-arg=FRAPPE_BRANCH=version-15 \
    --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 \
    --tag=custom:15 \
@@ -64,7 +64,7 @@ Podman (the POD MANager) is a tool for managing containers and images, volumes m
       export PULL_POLICY=never
   ```
 - Configuration of parameters used when starting the containers
-  - create `.env` file copying from example.env (Read more on setting up environment variables [here](https://github.com/frappe/frappe_docker/blob/main/docs/environment-variables.md)
+  - create `.env` file copying from example.env (Read more on setting up environment variables [here](https://github.com/frappecom/frappe_docker/blob/main/docs/environment-variables.md)
 
 ## Final step
 
