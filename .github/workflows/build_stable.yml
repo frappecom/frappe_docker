@@ -35,7 +35,7 @@ jobs:
     with:
       repo: erpnext
       version: "14"
-      push: ${{ github.repository == 'frappe/frappe_docker' && github.event_name != 'pull_request' }}
+      push: ${{ github.repository == 'frappecom/frappe_docker' && github.event_name != 'pull_request' }}
       python_version: 3.10.13
       node_version: 16.20.2
     secrets:
@@ -47,7 +47,7 @@ jobs:
     with:
       repo: erpnext
       version: "15"
-      push: ${{ github.repository == 'frappe/frappe_docker' && github.event_name != 'pull_request' }}
+      push: ${{ github.repository == 'frappecom/frappe_docker' && github.event_name != 'pull_request' }}
       python_version: 3.11.6
       node_version: 18.18.2
     secrets:
@@ -57,7 +57,7 @@ jobs:
   update_versions:
     name: Update example.env and pwd.yml
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'frappe/frappe_docker' && github.event_name != 'pull_request' }}
+    if: ${{ github.repository == 'frappecom/frappe_docker' && github.event_name != 'pull_request' }}
     needs: v15
 
     steps:
@@ -95,7 +95,7 @@ jobs:
   release_helm:
     name: Release Helm
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'frappe/frappe_docker' && github.event_name != 'pull_request' }}
+    if: ${{ github.repository == 'frappecom/frappe_docker' && github.event_name != 'pull_request' }}
     needs: v15
 
     steps:
@@ -111,6 +111,6 @@ jobs:
 
       - name: Release
         run: |
-          git clone git@github.com:frappe/helm.git && cd helm
+          git clone git@github.com:frappecom/helm.git && cd helm
           pip install -r release_wizard/requirements.txt
           ./release_wizard/wizard 15 patch --remote origin --ci
