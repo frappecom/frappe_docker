@@ -11,7 +11,7 @@ from typing import Literal
 Repo = Literal["frappe", "erpnext"]
 MajorVersion = Literal["12", "13", "14", "15", "develop"]
 
-
+# 获取最新的标签
 def get_latest_tag(repo: Repo, version: MajorVersion) -> str:
     if version == "develop":
         return "develop"
@@ -25,7 +25,7 @@ def get_latest_tag(repo: Repo, version: MajorVersion) -> str:
             "--refs",
             "--tags",
             "--sort=v:refname",
-            f"https://github.com/frappe/{repo}",
+            f"https://github.com/frappecom/{repo}",
             str(regex),
         ),
         encoding="UTF-8",
@@ -39,7 +39,7 @@ def get_latest_tag(repo: Repo, version: MajorVersion) -> str:
         raise RuntimeError(f'Can\'t parse tag from ref "{ref}"')
     return matches[0]
 
-
+# 更新环境变量文件
 def update_env(file_name: str, frappe_tag: str, erpnext_tag: str | None = None):
     text = f"\nFRAPPE_VERSION={frappe_tag}"
     if erpnext_tag:
@@ -48,11 +48,11 @@ def update_env(file_name: str, frappe_tag: str, erpnext_tag: str | None = None):
     with open(file_name, "a") as f:
         f.write(text)
 
-
+# 打印响应
 def _print_resp(frappe_tag: str, erpnext_tag: str | None = None):
     print(json.dumps({"frappe": frappe_tag, "erpnext": erpnext_tag}))
 
-
+# 主函数
 def main(_args: list[str]) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", choices=["frappe", "erpnext"], required=True)
@@ -73,6 +73,6 @@ def main(_args: list[str]) -> int:
     _print_resp(frappe_tag, erpnext_tag)
     return 0
 
-
+# 程序入口
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
