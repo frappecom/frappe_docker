@@ -1,7 +1,7 @@
-> Please provide enough information so that others can review your pull request:
+> 请提供足够的信息以便其他人可以审查您的 Pull Request:
 
-<!-- You can skip this if you're fixing a typo or updating existing documentation -->
+<!-- 如果您是修复拼写错误或更新现有文档，可以跳过此部分 -->
 
-> Explain the **details** for making this change. What existing problem does the pull request solve?
+> 详细说明进行此更改的原因。此 Pull Request 解决了什么现有问题?
 
-<!-- Example: When "Adding a function to do X", explain why it is necessary to have a way to do X. -->
+<!-- 示例：当"添加一个执行 X 的函数"时，解释为什么需要有一种方式来执行 X。 -->
