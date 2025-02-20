@@ -2,7 +2,7 @@
 # Reference: https://github.com/docker/buildx/blob/master/docs/reference/buildx_bake.md
 
 variable "REGISTRY_USER" {
-    default = "frappe"
+    default = "frappechina"
 }
 
 variable PYTHON_VERSION {
@@ -21,15 +21,15 @@ variable "ERPNEXT_VERSION" {
 }
 
 variable "FRAPPE_REPO" {
-    default = "https://github.com/frappe/frappe"
+    default = "https://github.com/frappecom/frappe"
 }
 
 variable "ERPNEXT_REPO" {
-    default = "https://github.com/frappe/erpnext"
+    default = "https://github.com/frappecom/erpnext"
 }
 
 variable "BENCH_REPO" {
-    default = "https://github.com/frappe/bench"
+    default = "https://github.com/frappecom/bench"
 }
 
 variable "LATEST_BENCH_RELEASE" {
@@ -45,8 +45,8 @@ target "bench" {
     context = "images/bench"
     target = "bench"
     tags = [
-        "frappe/bench:${LATEST_BENCH_RELEASE}",
-        "frappe/bench:latest",
+        "frappechina/bench:${LATEST_BENCH_RELEASE}",
+        "frappechina/bench:latest",
     ]
 }
 
