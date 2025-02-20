@@ -1,90 +1,90 @@
-[![Build Stable](https://github.com/frappe/frappe_docker/actions/workflows/build_stable.yml/badge.svg)](https://github.com/frappe/frappe_docker/actions/workflows/build_stable.yml)
-[![Build Develop](https://github.com/frappe/frappe_docker/actions/workflows/build_develop.yml/badge.svg)](https://github.com/frappe/frappe_docker/actions/workflows/build_develop.yml)
+[![构建稳定版](https://github.com/frappecom/frappe_docker/actions/workflows/build_stable.yml/badge.svg)](https://github.com/frappecom/frappe_docker/actions/workflows/build_stable.yml)  
+[![构建开发版](https://github.com/frappecom/frappe_docker/actions/workflows/build_develop.yml/badge.svg)](https://github.com/frappecom/frappe_docker/actions/workflows/build_develop.yml)  
 
-Everything about [Frappe](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext) in containers.
+关于 [Frappe](https://github.com/frappecom/frappe) 和 [ERPNext](https://github.com/frappecom/erpnext) 的容器化一切。
 
-# Getting Started
+# 开始使用
 
-To get started you need [Docker](https://docs.docker.com/get-docker/), [docker-compose](https://docs.docker.com/compose/), and [git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git) setup on your machine. For Docker basics and best practices refer to Docker's [documentation](http://docs.docker.com).
+要开始使用，你需要在你的机器上安装 [Docker](https://docs.docker.com/get-docker/)、[docker-compose](https://docs.docker.com/compose/) 和 [git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)。关于 Docker 的基础知识和最佳实践，请参考 Docker 的 [文档](http://docs.docker.com)。
 
-Once completed, chose one of the following two sections for next steps.
+完成后，请从以下两个部分中选择一个进行下一步操作。
 
-### Try in Play With Docker
+### 在 Play With Docker 中尝试
 
-To play in an already set up sandbox, in your browser, click the button below:
+要在已设置好的沙箱中尝试，请在浏览器中点击以下按钮：
 
-<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/frappe/frappe_docker/main/pwd.yml">
-  <img src="https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png" alt="Try in PWD"/>
+<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/frappecom/frappe_docker/main/pwd.yml">  
+  <img src="https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png" alt="在 PWD 中尝试"/>  
 </a>
 
-### Try on your Dev environment
+### 在你的开发环境中尝试
 
-First clone the repo:
+首先克隆仓库：
 
 ```sh
-git clone https://github.com/frappe/frappe_docker
-cd frappe_docker
+git clone https://github.com/frappecom/frappe_docker  
+cd frappe_docker  
 ```
 
-Then run: `docker compose -f pwd.yml up -d`
+然后运行：`docker compose -f pwd.yml up -d`
 
-### To run on ARM64 architecture follow this instructions
+### 在 ARM64 架构上运行的说明
 
-After cloning the repo run this command to build multi-architecture images specifically for ARM64.
+克隆仓库后，运行以下命令以构建专门针对 ARM64 的多架构镜像：
 
 `docker buildx bake --no-cache --set "*.platform=linux/arm64"`
 
-and then
+然后：
 
-- add `platform: linux/arm64` to all services in the pwd.yaml
-- replace the current specified versions of erpnext image on `pwd.yml` with `:latest`
+- 在 `pwd.yaml` 中为所有服务添加 `platform: linux/arm64`
+- 将 `pwd.yml` 中指定的 `erpnext` 镜像版本替换为 `:latest`
 
-Then run: `docker compose -f pwd.yml up -d`
+接着运行：`docker compose -f pwd.yml up -d`
 
-## Final steps
+## 最后步骤
 
-Wait for 5 minutes for ERPNext site to be created or check `create-site` container logs before opening browser on port 8080. (username: `Administrator`, password: `admin`)
+等待 5 分钟以创建 ERPNext 站点，或者先检查 `create-site` 容器的日志，再在浏览器中打开端口 8080。（用户名：`Administrator`，密码：`admin`）
 
-If you ran in a Dev Docker environment, to view container logs: `docker compose -f pwd.yml logs -f create-site`. Don't worry about some of the initial error messages, some services take a while to become ready, and then they go away.
+如果你在开发 Docker 环境中运行，查看容器日志：`docker compose -f pwd.yml logs -f create-site`。不用担心一些初始的错误信息，某些服务需要一些时间才能准备就绪，然后错误信息会自动消失。
 
-# Documentation
+# 文档
 
-### [Frequently Asked Questions](https://github.com/frappe/frappe_docker/wiki/Frequently-Asked-Questions)
+### [常见问题](https://github.com/frappecom/frappe_docker/wiki/Frequently-Asked-Questions)
 
-### [Production](#production)
+### [生产环境](#production)
 
-- [List of containers](docs/list-of-containers.md)
-- [Single Compose Setup](docs/single-compose-setup.md)
-- [Environment Variables](docs/environment-variables.md)
-- [Single Server Example](docs/single-server-example.md)
-- [Setup Options](docs/setup-options.md)
-- [Site Operations](docs/site-operations.md)
-- [Backup and Push Cron Job](docs/backup-and-push-cronjob.md)
-- [Port Based Multi Tenancy](docs/port-based-multi-tenancy.md)
-- [Migrate from multi-image setup](docs/migrate-from-multi-image-setup.md)
-- [running on linux/mac](docs/setup_for_linux_mac.md)
-- [TLS for local deployment](docs/tls-for-local-deployment.md)
+- [容器列表](docs/list-of-containers.md)
+- [单文件 Compose 配置](docs/single-compose-setup.md)
+- [环境变量](docs/environment-variables.md)
+- [单服务器示例](docs/single-server-example.md)
+- [设置选项](docs/setup-options.md)
+- [站点操作](docs/site-operations.md)
+- [备份和推送定时任务](docs/backup-and-push-cronjob.md)
+- [基于端口的多租户](docs/port-based-multi-tenancy.md)
+- [从多镜像配置迁移](docs/migrate-from-multi-image-setup.md)
+- [在 Linux/Mac 上运行](docs/setup_for_linux_mac.md)
+- [本地部署的 TLS](docs/tls-for-local-deployment.md)
 
-### [Custom Images](#custom-images)
+### [自定义镜像](#custom-images)
 
-- [Custom Apps](docs/custom-apps.md)
-- [Custom Apps with podman](docs/custom-apps-podman.md)
-- [Build Version 10 Images](docs/build-version-10-images.md)
+- [自定义应用](docs/custom-apps.md)
+- [使用 podman 自定义应用](docs/custom-apps-podman.md)
+- [构建版本 10 镜像](docs/build-version-10-images.md)
 
-### [Development](#development)
+### [开发环境](#development)
 
-- [Development using containers](docs/development.md)
-- [Bench Console and VSCode Debugger](docs/bench-console-and-vscode-debugger.md)
-- [Connect to localhost services](docs/connect-to-localhost-services-from-containers-for-local-app-development.md)
+- [使用容器进行开发](docs/development.md)
+- [Bench 控制台和 VSCode 调试器](docs/bench-console-and-vscode-debugger.md)
+- [连接到本地服务](docs/connect-to-localhost-services-from-containers-for-local-app-development.md)
 
-### [Troubleshoot](docs/troubleshoot.md)
+### [故障排除](docs/troubleshoot.md)
 
-# Contributing
+# 贡献
 
-If you want to contribute to this repo refer to [CONTRIBUTING.md](CONTRIBUTING.md)
+如果你想为这个仓库做贡献，请参考 [CONTRIBUTING.md](CONTRIBUTING.md)
 
-This repository is only for container related stuff. You also might want to contribute to:
+本仓库仅用于容器相关的内容。你可能还会想贡献以下项目：
 
-- [Frappe framework](https://github.com/frappe/frappe#contributing),
-- [ERPNext](https://github.com/frappe/erpnext#contributing),
-- [Frappe Bench](https://github.com/frappe/bench).
+- [Frappe 框架](https://github.com/frappecom/frappe#contributing),
+- [ERPNext](https://github.com/frappecom/erpnext#contributing),
+- [Frappe Bench](https://github.com/frappecom/bench).
